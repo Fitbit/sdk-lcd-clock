@@ -1,6 +1,5 @@
 {
   "fitbit": {
-    "appUUID": "950272ae-22bc-49d5-9e1c-c30e20742526",
     "appType": "clockface",
     "appDisplayName": "LCD Watch",
     "wipeColor": "#8bc34a"
