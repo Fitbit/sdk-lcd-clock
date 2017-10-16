@@ -4,8 +4,8 @@
   
   <image id="day" href="day_mon.png" x="192" y="75" width="68" height="30" fill="#FFFFFF" class="foreground" />
 
-  <image id="date1" href="datenum_1.png" x="292" y="75" width="20" height="30" fill="#FFFFFF" class="foreground" />
-  <image id="date2" href="datenum_1.png" x="319" y="75" width="20" height="30" fill="#FFFFFF" class="foreground" />
+  <image id="date1" href="1.png" x="292" y="75" width="20" height="30" fill="#FFFFFF" class="foreground" />
+  <image id="date2" href="1.png" x="319" y="75" width="20" height="30" fill="#FFFFFF" class="foreground" />
 
   <svg>
     <image href="separator.png" x="166" y="137" width="18" height="71" fill="#FFFFFF" opacity=".1" class="foreground" />
