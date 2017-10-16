@@ -9,4 +9,3 @@ settingsStorage.onchange = function(evt) {
     console.log("companion - no connection");
   }
 }
-

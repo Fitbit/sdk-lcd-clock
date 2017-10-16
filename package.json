@@ -1,7 +1,9 @@
 {
   "fitbit": {
     "appType": "clockface",
-    "appDisplayName": "LCD Watch",
-    "wipeColor": "#8bc34a"
+    "appDisplayName": "LCD Clock",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "#8bc34a",
+    "requestedPermissions": []
   }
 }

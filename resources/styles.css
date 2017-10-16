@@ -1,20 +1,3 @@
-text     {
-  font-size: 32;
-  font-family: System-Regular;
-  font-weight: regular;
-  y: 12;
-  text-length: 32;
-}
-
-textarea {
-  font-size: 32;
-  font-family: System-Regular;
-  font-weight: regular;
-  y: 12;
-  text-length: 1024;
-}
-
 #page {
   fill: black;
 }
-

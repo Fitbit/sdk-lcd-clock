@@ -1,5 +1,8 @@
+import clock from "clock";
 import document from "document";
 import * as messaging from "messaging";
+
+clock.granularity = "minutes";
 
 let page = document.getElementById("page");
 
@@ -15,11 +18,8 @@ let day = document.getElementById("day");
 let date1 = document.getElementById("date1");
 let date2 = document.getElementById("date2");
 
-clocker();
-setInterval(clocker, 1000);
-
-function clocker() {
-  let d = new Date();
+clock.ontick = (evt) => {
+  let d = evt.date;
 
   // DATE
   setDate(d.getDate());
@@ -65,7 +65,7 @@ function setMins(val) {
 }
 
 function setDate(val) {
-  drawDigits("datenum_", val, date1, date2);
+  drawDigits("", val, date1, date2);
 }
 
 function setDay(val) {
