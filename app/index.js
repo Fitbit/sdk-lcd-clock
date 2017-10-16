@@ -73,8 +73,8 @@ function setDay(val) {
 }
 
 function drawDigits(prefix, val, place1, place2) {
-  place1.href = Math.floor(val / 10) + ".png";
-  place2.href = Math.floor(val % 10) + ".png";
+  place1.href = prefix + Math.floor(val / 10) + ".png";
+  place2.href = prefix + Math.floor(val % 10) + ".png";
 }
 
 function getDayImg(index) {
