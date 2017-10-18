@@ -2,7 +2,7 @@ import clock from "clock";
 import document from "document";
 import * as messaging from "messaging";
 
-clock.granularity = "minutes";
+clock.granularity = "seconds";
 
 let page = document.getElementById("page");
 
