@@ -1,0 +1,27 @@
+<svg id="page" class="portrait-view">
+
+  <image id="background" href="background.png" x="0" y="0" width="100%" height="100%" fill="#000000" class="background" />
+   
+  <image id="day" href="day_mon.png" x="165" y="107" width="59" height="26" fill="#FFFFFF" class="foreground" />
+  
+  <image id="date1" href="1.png" x="251" y="107" width="18" height="26" fill="#FFFFFF" class="foreground" />
+  <image id="date2" href="1.png" x="275" y="107" width="18" height="26" fill="#FFFFFF" class="foreground" />
+  
+  <svg> 
+    <image href="separator.png" x="143" y="161" width="16" height="63" fill="#FFFFFF" opacity=".1" class="foreground" />
+    <image href="8.png" x="6" y="144" width="61" height="91" fill="#FFFFFF" opacity=".1" class="foreground" />
+    <image href="8.png" x="75" y="144" width="61" height="91" fill="#FFFFFF" opacity=".1" class="foreground" />
+    <image href="8.png" x="167" y="144" width="61" height="91" fill="#FFFFFF" opacity=".1" class="foreground" />
+    <image href="8.png" x="234" y="144" width="61" height="91" fill="#FFFFFF" opacity=".1" class="foreground" />
+
+    <image id="separator" href="separator.png" x="143" y="161" width="16" height="63" fill="#FFFFFF" class="foreground" />
+    <image id="hours1" href="1.png" x="6" y="144" width="61" height="91" fill="#FFFFFF" class="foreground" />
+    <image id="hours2" href="3.png" x="75" y="144" width="61" height="91" fill="#FFFFFF" class="foreground" />
+    <image id="mins1" href="3.png" x="167" y="144" width="61" height="91" fill="#FFFFFF" class="foreground" />
+    <image id="mins2" href="7.png" x="234" y="144" width="61" height="91" fill="#FFFFFF" class="foreground" />
+  </svg>
+  
+</svg>
+
+<!-- 300x300 -->
+
