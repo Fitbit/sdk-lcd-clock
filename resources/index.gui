@@ -2,10 +2,10 @@
 
   <image id="background" href="background.png" x="0" y="0" width="100%" height="100%" fill="#000000" class="background" />
    
-  <image id="day" x="192" y="75" width="68" height="30" fill="#FFFFFF" class="foreground" />
+  <image id="day" href="day_mon.png" x="192" y="75" width="68" height="30" fill="#FFFFFF" class="foreground" />
   
-  <image id="date1" x="292" y="75" width="20" height="30" fill="#FFFFFF" class="foreground" />
-  <image id="date2" x="319" y="75" width="20" height="30" fill="#FFFFFF" class="foreground" />
+  <image id="date1" href="1.png" x="292" y="75" width="20" height="30" fill="#FFFFFF" class="foreground" />
+  <image id="date2" href="1.png" x="319" y="75" width="20" height="30" fill="#FFFFFF" class="foreground" />
   
   <svg> 
     <image href="separator.png" x="166" y="137" width="18" height="71" fill="#FFFFFF" opacity=".1" class="foreground" />

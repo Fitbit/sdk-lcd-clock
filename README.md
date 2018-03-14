@@ -2,7 +2,9 @@
 
 Fitbit SDK example application which looks like a retro LCD digital clock.
 
-Uses images instead of fonts, colors are configurable.
+![Screenshot](screenshot.png)
+
+Uses images instead of fonts, and colors are configurable.
 
 Find out more information on the
 [Fitbit Developer Website](https://dev.fitbit.com).

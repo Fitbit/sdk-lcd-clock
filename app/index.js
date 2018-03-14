@@ -1,7 +1,16 @@
+import { me } from "appbit";
+import clock from "clock";
 import document from "document";
+import * as fs from "fs";
 import * as messaging from "messaging";
+import { preferences } from "user-settings";
+import * as util from "./utils";
 
-let page = document.getElementById("page");
+const SETTINGS_TYPE = "cbor";
+const SETTINGS_FILE = "settings.cbor";
+
+let settings = loadSettings();
+applyTheme(settings.background, settings.foreground);
 
 // TIME
 let separator = document.getElementById("separator");
@@ -15,11 +24,10 @@ let day = document.getElementById("day");
 let date1 = document.getElementById("date1");
 let date2 = document.getElementById("date2");
 
-clocker();
-setInterval(clocker, 1000);
+clock.granularity = "seconds";
 
-function clocker() {
-  let d = new Date();
+clock.ontick = evt => {
+  let d = evt.date;
 
   // DATE
   setDate(d.getDate());
@@ -28,8 +36,15 @@ function clocker() {
   setDay(d.getDay());
 
   // HOURS
-  let hour = ("0" + d.getHours()).slice(-2);
-  setHours(hour);
+  let hours = d.getHours();
+  if (preferences.clockDisplay === "12h") {
+    // 12h format
+    hours = hours % 12 || 12;
+  } else {
+    // 24h format
+    hours = util.zeroPad(hours);
+  }
+  setHours(hours);
 
   // MINUTES
   let minute = ("0" + d.getMinutes()).slice(-2);
@@ -49,6 +64,8 @@ function applyTheme(background, foreground) {
   items.forEach(function(item) {
     item.style.fill = foreground;
   });
+  settings.background = background;
+  settings.foreground = foreground;
 }
 
 // Blink time separator
@@ -57,33 +74,57 @@ function setSeparator(val) {
 }
 
 function setHours(val) {
-  drawDigits("", val, hours1, hours2);
+  if (val > 9) {
+    drawDigit(Math.floor(val / 10), hours1);
+  } else {
+    drawDigit("", hours1);
+  }
+  drawDigit(Math.floor(val % 10), hours2);
 }
 
 function setMins(val) {
-  drawDigits("", val, mins1, mins2);
+  drawDigit(Math.floor(val / 10), mins1);
+  drawDigit(Math.floor(val % 10), mins2);
 }
 
 function setDate(val) {
-  drawDigits("datenum_", val, date1, date2);
+  drawDigit(Math.floor(val / 10), date1);
+  drawDigit(Math.floor(val % 10), date2);
 }
 
 function setDay(val) {
-  day.href = getDayImg(val);
+  day.image = getDayImg(val);
 }
 
-function drawDigits(prefix, val, place1, place2) {
-  place1.href = prefix + Math.floor(val / 10) + ".png";
-  place2.href = prefix + Math.floor(val % 10) + ".png";
+function drawDigit(val, place) {
+  place.image = `${val}.png`;
 }
 
 function getDayImg(index) {
   let days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
-  return "day_" + days[index] + ".png";
+  return `day_${days[index]}.png`;
 }
 
 // Listen for the onmessage event
-messaging.peerSocket.onmessage = function(evt) {
-  // console.log("device got: " + evt.data.background);
+messaging.peerSocket.onmessage = evt => {
   applyTheme(evt.data.background, evt.data.foreground);
+}
+
+// Register for the unload event
+me.onunload = saveSettings;
+
+function loadSettings() {
+  try {
+    return fs.readFileSync(SETTINGS_FILE, SETTINGS_TYPE);
+  } catch (ex) {
+    // Defaults
+    return {
+      background: "#000000",
+      foreground: "#FFFFFF"
+    }
+  }
+}
+
+function saveSettings() {
+  fs.writeFileSync(SETTINGS_FILE, settings, SETTINGS_TYPE);
 }
